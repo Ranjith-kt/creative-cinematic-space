@@ -15,11 +15,11 @@ export const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50">
-      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
         <Link to="/" className="text-xl font-light tracking-wider hover:opacity-70 transition-opacity">
           RANJITH KIZHAKKEY T
         </Link>
-        <nav className="flex gap-8">
+        <nav className="flex flex-wrap gap-4 md:gap-8 justify-center">
           {navItems.map((item) => (
             <button
               key={item.value}
@@ -32,6 +32,12 @@ export const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
               {item.label}
             </button>
           ))}
+          <Link
+            to="/blog"
+            className="text-sm tracking-wide hover:opacity-70 transition-opacity uppercase"
+          >
+            Blog
+          </Link>
         </nav>
       </div>
     </header>
