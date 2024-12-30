@@ -8,12 +8,12 @@ export const About = () => {
         <h1 className="text-4xl md:text-5xl font-light mb-12 text-center">About Me</h1>
         
         <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-          <div className="space-y-6">
-            <div className="relative overflow-hidden rounded-2xl shadow-xl">
+          <div className="space-y-8">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-105">
               <img
                 src="/lovable-uploads/52c02767-0b67-4613-84fd-db94f49141df.png"
                 alt="Ranjith Kizhakkey Thaivalappil"
-                className="w-full h-auto transform transition-transform duration-500 hover:scale-[1.02]"
+                className="w-full h-auto"
               />
             </div>
             
@@ -47,7 +47,7 @@ export const About = () => {
             <div className="flex justify-center">
               <Button
                 variant="outline"
-                className="group relative px-8 py-3 text-lg font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+                className="group relative px-8 py-6 text-lg font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
                 onClick={() => window.open('/path-to-your-resume.pdf', '_blank')}
               >
                 <FileText className="h-5 w-5 mr-2" />
@@ -59,7 +59,7 @@ export const About = () => {
             </div>
           </div>
           
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-8">
             <div className="prose prose-lg max-w-none space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 Hello, I'm Ranjith Kizhakkey Thaivalappil, a passionate VFX artist and creative technologist 
@@ -88,9 +88,11 @@ export const About = () => {
               </p>
             </div>
             
-            <p className="text-xl font-light border-l-4 border-primary pl-4 mt-8">
-              Currently working and living in Vancouver, Canada.
-            </p>
+            <div className="border-l-4 border-primary pl-6 py-2">
+              <p className="text-xl font-light italic">
+                Currently working and living in Vancouver, Canada.
+              </p>
+            </div>
           </div>
         </div>
       </div>
