@@ -30,14 +30,20 @@ export const About = () => {
             >
               <InstagramIcon className="h-5 w-5" />
             </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full"
-              onClick={() => window.open('/path-to-your-resume.pdf', '_blank')}
-            >
-              <FileText className="h-5 w-5" />
-            </Button>
+            <div className="relative">
+              <Button
+                variant="outline"
+                size="icon"
+                className="rounded-full"
+                onClick={() => window.open('/path-to-your-resume.pdf', '_blank')}
+              >
+                <FileText className="h-5 w-5" />
+              </Button>
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                <span className="font-dancing-script text-sm">Download Resume</span>
+                <span className="block text-center mt-1">↓</span>
+              </div>
+            </div>
             <Button
               variant="outline"
               size="icon"
