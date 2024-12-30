@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
+import { Play } from "lucide-react";
 
 export const Portfolio = () => (
   <div className="container mx-auto px-4 py-16">
@@ -25,11 +26,36 @@ export const Portfolio = () => (
             <h3 className="text-2xl font-bold text-[#D3E4FD] mb-4">Showreels & Videos</h3>
             <Carousel className="w-full">
               <CarouselContent>
-                {[1, 2, 3].map((item) => (
-                  <CarouselItem key={item} className="md:basis-1/2 lg:basis-1/3 p-1">
-                    <Card className="bg-white/5 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
-                      <CardContent className="flex aspect-video items-center justify-center p-6">
-                        <span className="text-3xl font-semibold text-[#D3E4FD]">Video {item}</span>
+                {[
+                  {
+                    title: "Creative Process",
+                    thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+                    duration: "3:45"
+                  },
+                  {
+                    title: "Tech Innovation",
+                    thumbnail: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+                    duration: "2:30"
+                  },
+                  {
+                    title: "Digital Future",
+                    thumbnail: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+                    duration: "4:15"
+                  }
+                ].map((video, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 p-1">
+                    <Card className="bg-white/5 transform transition-all duration-300 hover:scale-105 hover:bg-white/10 overflow-hidden">
+                      <CardContent className="relative p-0 aspect-video">
+                        <img 
+                          src={video.thumbnail} 
+                          alt={video.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                          <Play className="w-16 h-16 text-white mb-2" />
+                          <span className="text-white font-semibold">{video.title}</span>
+                          <span className="text-white/80 text-sm">{video.duration}</span>
+                        </div>
                       </CardContent>
                     </Card>
                   </CarouselItem>
