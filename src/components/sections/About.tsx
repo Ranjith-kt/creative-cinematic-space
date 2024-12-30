@@ -30,20 +30,6 @@ export const About = () => {
             >
               <InstagramIcon className="h-5 w-5" />
             </Button>
-            <div className="relative">
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full"
-                onClick={() => window.open('/path-to-your-resume.pdf', '_blank')}
-              >
-                <FileText className="h-5 w-5" />
-              </Button>
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                <span className="font-dancing-script text-sm">Download Resume</span>
-                <span className="block text-center mt-0.5">↓</span>
-              </div>
-            </div>
             <Button
               variant="outline"
               size="icon"
@@ -51,6 +37,19 @@ export const About = () => {
               onClick={() => window.location.href = 'mailto:your-email@example.com'}
             >
               <Mail className="h-5 w-5" />
+            </Button>
+          </div>
+          <div className="mt-8 text-center">
+            <Button
+              variant="outline"
+              className="group relative px-6 py-3 text-lg font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+              onClick={() => window.open('/path-to-your-resume.pdf', '_blank')}
+            >
+              <FileText className="h-5 w-5 mr-2" />
+              <span className="font-bold">Resume</span>
+              <span className="font-dancing-script text-sm absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                Download
+              </span>
             </Button>
           </div>
         </div>
