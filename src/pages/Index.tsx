@@ -1,15 +1,19 @@
-import { Hero } from "@/components/sections/Hero";
-import { Introduction } from "@/components/sections/Introduction";
-import { Portfolio } from "@/components/sections/Portfolio";
-import { Contact } from "@/components/sections/Contact";
+import { Header } from "@/components/sections/Header";
+import { Gallery } from "@/components/sections/Gallery";
+import { About } from "@/components/sections/About";
+import { useState } from "react";
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState("work");
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1A1F2C] to-[#403E43]">
-      <Hero />
-      <Introduction />
-      <Portfolio />
-      <Contact />
+    <div className="min-h-screen bg-white">
+      <Header activeSection={activeSection} onSectionChange={setActiveSection} />
+      {activeSection === "about" ? (
+        <About />
+      ) : (
+        <Gallery category={activeSection} />
+      )}
     </div>
   );
 };
