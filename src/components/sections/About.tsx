@@ -8,7 +8,7 @@ export const About = () => {
         <div className="space-y-4 md:space-y-6">
           <div className="relative overflow-hidden rounded-lg">
             <img
-              src="/lovable-uploads/c3b1aca3-1ba0-4891-a941-dbc56d77a253.png"
+              src="/lovable-uploads/2255da67-caf2-4e26-ae3c-10c4f30eae8d.png"
               alt="Ranjith Kizhakkey Thaivalappil"
               className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
             />
