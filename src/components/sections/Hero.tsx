@@ -24,11 +24,11 @@ export const Hero = () => (
 
     {/* Content */}
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="text-center text-white space-y-6 p-8 bg-black/30 backdrop-blur-sm rounded-xl">
-        <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#9b87f5] to-[#D6BCFA]">
+      <div className="text-center text-white space-y-6 p-8 bg-black/30 backdrop-blur-sm rounded-xl animate-fade-in">
+        <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#9b87f5] to-[#D6BCFA] animate-pulse">
           Ranjith Kizhakkey Thaivalappil
         </h1>
-        <p className="text-xl md:text-2xl text-[#D3E4FD]">
+        <p className="text-xl md:text-2xl text-[#D3E4FD] animate-fade-in">
           Creative Technologist, VFX Artist, and Dreamer
         </p>
       </div>

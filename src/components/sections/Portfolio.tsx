@@ -6,42 +6,45 @@ import { Button } from "@/components/ui/button";
 
 export const Portfolio = () => (
   <div className="container mx-auto px-4 py-16">
-    <Card className="bg-white/5 backdrop-blur-lg border-none">
+    <Card className="bg-white/5 backdrop-blur-lg border-none transform transition-all duration-300 hover:scale-[1.01]">
       <CardContent className="p-6 md:p-8">
         <Tabs defaultValue="showreels" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 bg-white/5">
-            <TabsTrigger value="showreels">Showreels & Videos</TabsTrigger>
-            <TabsTrigger value="cinematography">Cinematography</TabsTrigger>
-            <TabsTrigger value="tech">Tech Projects</TabsTrigger>
-            <TabsTrigger value="scripts">Scripts & Tools</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 bg-white/5 mb-8">
+            {["showreels", "cinematography", "tech", "scripts"].map((tab) => (
+              <TabsTrigger 
+                key={tab} 
+                value={tab}
+                className="data-[state=active]:bg-[#9b87f5] data-[state=active]:text-white transition-all duration-300"
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </TabsTrigger>
+            ))}
           </TabsList>
 
-          <TabsContent value="showreels" className="mt-4">
+          <TabsContent value="showreels" className="mt-4 animate-fade-in">
             <h3 className="text-2xl font-bold text-[#D3E4FD] mb-4">Showreels & Videos</h3>
             <Carousel className="w-full">
               <CarouselContent>
                 {[1, 2, 3].map((item) => (
-                  <CarouselItem key={item} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1">
-                      <Card className="bg-white/5">
-                        <CardContent className="flex aspect-video items-center justify-center p-6">
-                          <span className="text-3xl font-semibold text-[#D3E4FD]">Video {item}</span>
-                        </CardContent>
-                      </Card>
-                    </div>
+                  <CarouselItem key={item} className="md:basis-1/2 lg:basis-1/3 p-1">
+                    <Card className="bg-white/5 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
+                      <CardContent className="flex aspect-video items-center justify-center p-6">
+                        <span className="text-3xl font-semibold text-[#D3E4FD]">Video {item}</span>
+                      </CardContent>
+                    </Card>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="bg-[#9b87f5] hover:bg-[#7E69AB]" />
+              <CarouselNext className="bg-[#9b87f5] hover:bg-[#7E69AB]" />
             </Carousel>
           </TabsContent>
 
-          <TabsContent value="cinematography" className="mt-4">
+          <TabsContent value="cinematography" className="mt-4 animate-fade-in">
             <h3 className="text-2xl font-bold text-[#D3E4FD] mb-4">Cinematography</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[1, 2, 3, 4, 5, 6].map((item) => (
-                <Card key={item} className="bg-white/5">
+                <Card key={item} className="bg-white/5 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
                   <CardContent className="p-4">
                     <div className="aspect-video bg-white/10 rounded-lg mb-2"></div>
                     <h4 className="text-[#D3E4FD] font-semibold">Project Title {item}</h4>
