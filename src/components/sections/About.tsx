@@ -39,9 +39,9 @@ export const About = () => {
               >
                 <FileText className="h-5 w-5" />
               </Button>
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
                 <span className="font-dancing-script text-sm">Download Resume</span>
-                <span className="block text-center mt-1">↓</span>
+                <span className="block text-center mt-0.5">↓</span>
               </div>
             </div>
             <Button
