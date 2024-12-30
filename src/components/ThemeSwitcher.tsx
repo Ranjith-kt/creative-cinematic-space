@@ -37,13 +37,28 @@ export const ThemeSwitcher = () => {
     const root = document.documentElement;
     const colors = themes[theme];
     
+    // Update CSS variables for the entire website
     root.style.setProperty('--primary', colors.primary);
     root.style.setProperty('--secondary', colors.secondary);
-    document.body.className = `bg-gradient-to-b ${colors.background}`;
-    
-    // Update CSS variables for text colors
     root.style.setProperty('--text-primary', colors.text);
     root.style.setProperty('--text-secondary', colors.subtext);
+    
+    // Update background gradient
+    document.body.className = `bg-gradient-to-b ${colors.background}`;
+    
+    // Update button colors
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .theme-button-${theme} {
+        background-color: ${colors.primary};
+        color: ${colors.text};
+        border-color: ${colors.secondary};
+      }
+      .theme-button-${theme}:hover {
+        background-color: ${colors.secondary};
+      }
+    `;
+    document.head.appendChild(style);
   };
 
   // Set default theme on mount
@@ -57,7 +72,7 @@ export const ThemeSwitcher = () => {
         <Button
           key={theme}
           onClick={() => applyTheme(theme as keyof typeof themes)}
-          className={`capitalize bg-${themes[theme as keyof typeof themes].primary} hover:opacity-80`}
+          className={`capitalize theme-button-${theme}`}
           variant="outline"
         >
           {theme}
