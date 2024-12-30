@@ -98,4 +98,13 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  @keyframes scan {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(2px);
+    }
+  }
 }
