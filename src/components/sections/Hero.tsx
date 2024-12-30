@@ -29,7 +29,7 @@ export const Hero = () => (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
       <iframe
         src="https://player.vimeo.com/video/1036595824?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&quality=540p"
-        className="absolute w-[300%] h-[300%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute w-[300%] md:w-[200%] h-[300%] md:h-[200%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         frameBorder="0"
         allow="autoplay; fullscreen"
         style={{ pointerEvents: 'none' }}
@@ -44,19 +44,19 @@ export const Hero = () => (
     </div>
 
     {/* Content */}
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="text-center text-white space-y-6 p-8 bg-black/30 backdrop-blur-sm rounded-xl animate-fade-in">
-        <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#9b87f5] to-[#D6BCFA] animate-pulse">
+    <div className="absolute inset-0 flex items-center justify-center px-4">
+      <div className="text-center text-white space-y-4 md:space-y-6 p-4 md:p-8 bg-black/30 backdrop-blur-sm rounded-xl animate-fade-in w-full max-w-lg">
+        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#9b87f5] to-[#D6BCFA] animate-pulse">
           Ranjith Kizhakkey Thaivalappil
         </h1>
-        <p className="text-xl md:text-2xl text-[#D3E4FD] animate-fade-in">
+        <p className="text-lg md:text-xl lg:text-2xl text-[#D3E4FD] animate-fade-in">
           Creative Technologist, VFX Artist, and Dreamer
         </p>
       </div>
     </div>
 
     {/* Image Grid */}
-    <div className="absolute bottom-0 left-0 right-0 grid grid-cols-10 gap-1 h-20 overflow-hidden">
+    <div className="absolute bottom-0 left-0 right-0 grid grid-cols-5 md:grid-cols-10 gap-1 h-16 md:h-20 overflow-hidden">
       {images.map((img, index) => (
         <div key={index} className="relative h-full overflow-hidden">
           <img

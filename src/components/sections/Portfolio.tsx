@@ -10,12 +10,12 @@ export const Portfolio = () => (
     <Card className="bg-white/5 backdrop-blur-lg border-none transform transition-all duration-300 hover:scale-[1.01]">
       <CardContent className="p-4 md:p-8">
         <Tabs defaultValue="showreels" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 bg-white/5 mb-6 md:mb-8 overflow-x-auto">
+          <TabsList className="flex md:grid w-full md:grid-cols-4 bg-white/5 mb-6 md:mb-8 overflow-x-auto space-x-2 md:space-x-0">
             {["showreels", "cinematography", "tech", "scripts"].map((tab) => (
               <TabsTrigger 
                 key={tab} 
                 value={tab}
-                className="data-[state=active]:bg-[#9b87f5] data-[state=active]:text-white transition-all duration-300 text-sm md:text-base whitespace-nowrap"
+                className="data-[state=active]:bg-[#9b87f5] data-[state=active]:text-white transition-all duration-300 text-sm md:text-base whitespace-nowrap flex-shrink-0 md:flex-shrink"
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
               </TabsTrigger>
@@ -52,7 +52,7 @@ export const Portfolio = () => (
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                          <Play className="w-12 h-12 md:w-16 md:h-16 text-white mb-2" />
+                          <Play className="w-10 h-10 md:w-16 md:h-16 text-white mb-2" />
                           <span className="text-white font-semibold text-sm md:text-base">{video.title}</span>
                           <span className="text-white/80 text-xs md:text-sm">{video.duration}</span>
                         </div>
@@ -61,14 +61,16 @@ export const Portfolio = () => (
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex bg-[#9b87f5] hover:bg-[#7E69AB]" />
-              <CarouselNext className="hidden md:flex bg-[#9b87f5] hover:bg-[#7E69AB]" />
+              <div className="hidden md:block">
+                <CarouselPrevious className="bg-[#9b87f5] hover:bg-[#7E69AB]" />
+                <CarouselNext className="bg-[#9b87f5] hover:bg-[#7E69AB]" />
+              </div>
             </Carousel>
           </TabsContent>
 
           <TabsContent value="cinematography" className="mt-4 animate-fade-in">
             <h3 className="text-xl md:text-2xl font-bold text-[#D3E4FD] mb-4">Cinematography</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[1, 2, 3, 4, 5, 6].map((item) => (
                 <Card key={item} className="bg-white/5 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
                   <CardContent className="p-4">
@@ -83,15 +85,15 @@ export const Portfolio = () => (
 
           <TabsContent value="tech" className="mt-4">
             <h3 className="text-xl md:text-2xl font-bold text-[#D3E4FD] mb-4">Tech Projects</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[1, 2, 3, 4].map((item) => (
                 <Card key={item} className="bg-white/5">
-                  <CardContent className="p-4 md:p-6">
+                  <CardContent className="p-4">
                     <h4 className="text-lg md:text-xl font-semibold text-[#D3E4FD] mb-2">Tech Project {item}</h4>
                     <p className="text-sm md:text-base text-[#C8C8C9] mb-4">Technical description and achievements</p>
-                    <div className="flex gap-2">
-                      <Button variant="outline" className="text-[#9b87f5] text-sm md:text-base">View Demo</Button>
-                      <Button variant="outline" className="text-[#9b87f5] text-sm md:text-base">Learn More</Button>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <Button variant="outline" className="text-[#9b87f5] text-sm md:text-base w-full sm:w-auto">View Demo</Button>
+                      <Button variant="outline" className="text-[#9b87f5] text-sm md:text-base w-full sm:w-auto">Learn More</Button>
                     </div>
                   </CardContent>
                 </Card>
