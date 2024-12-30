@@ -1,17 +1,44 @@
 import { Button } from "@/components/ui/button";
 import { LinkedinIcon, InstagramIcon, FileText, Mail } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export const About = () => {
+  const images = [
+    "/lovable-uploads/ec8fb09c-0617-45a1-b73a-4629b482fec5.png",
+    "/lovable-uploads/b9844f9e-328f-415d-b8d9-460fa9aaa190.png",
+    "/lovable-uploads/db01784c-f6f3-47b9-bcaa-b1522eeb8474.png",
+    "/lovable-uploads/c00af75f-b6e4-403f-abe9-22a81d50be71.png",
+    "/lovable-uploads/40c6259d-6e33-4e39-b53a-f3231c701ac0.png",
+    "/lovable-uploads/39d83e47-c3f1-4e9e-883f-b6c7a26b91f0.png",
+    "/lovable-uploads/2c05776c-e27d-4bb5-a035-fabae2a78750.png"
+  ];
+
   return (
     <div className="container mx-auto px-4 pt-16 md:pt-28">
       <div className="grid md:grid-cols-2 gap-6 md:gap-12 max-w-6xl mx-auto">
         <div className="space-y-4 md:space-y-6">
           <div className="relative overflow-hidden rounded-lg">
-            <img
-              src="/lovable-uploads/2255da67-caf2-4e26-ae3c-10c4f30eae8d.png"
-              alt="Ranjith Kizhakkey Thaivalappil"
-              className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
-            />
+            <Carousel className="w-full">
+              <CarouselContent>
+                {images.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <img
+                      src={image}
+                      alt={`Profile ${index + 1}`}
+                      className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </div>
           <div className="flex gap-3 justify-center mt-4">
             <Button
