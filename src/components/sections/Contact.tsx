@@ -30,7 +30,7 @@ export const Contact = () => (
                 <p className="text-[#C8C8C9] mb-4">
                   For business collaborations and opportunities:
                 </p>
-                <p className="text-[#D3E4FD]">ranjith.kt@framestore.com</p>
+                <p className="text-[#D3E4FD]">me@ranjithk.com</p>
               </CardContent>
             </Card>
           </div>
