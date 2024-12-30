@@ -2,11 +2,12 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Text3D, Center } from "@react-three/drei";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 const Scene = () => {
   return (
-    <>
+    <Suspense fallback={null}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <Center>
@@ -15,15 +16,26 @@ const Scene = () => {
           size={0.5}
           height={0.2}
           curveSegments={12}
+          bevelEnabled
+          bevelThickness={0.02}
+          bevelSize={0.02}
+          bevelOffset={0}
+          bevelSegments={5}
         >
           {`RKT`}
           <meshStandardMaterial color="#9b87f5" />
         </Text3D>
       </Center>
       <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={4} />
-    </>
+    </Suspense>
   );
 };
+
+const Fallback = () => (
+  <div className="text-white text-center">
+    Something went wrong with the 3D scene. Please refresh the page.
+  </div>
+);
 
 const Index = () => {
   const [showMore, setShowMore] = useState(false);
@@ -32,9 +44,14 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#1A1F2C] to-[#403E43]">
       {/* Hero Section */}
       <div className="relative h-screen">
-        <Canvas className="absolute inset-0">
-          <Scene />
-        </Canvas>
+        <ErrorBoundary FallbackComponent={Fallback}>
+          <Canvas
+            camera={{ position: [0, 0, 5], fov: 75 }}
+            style={{ background: 'transparent' }}
+          >
+            <Scene />
+          </Canvas>
+        </ErrorBoundary>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white space-y-6 p-8 bg-black/30 backdrop-blur-sm rounded-xl">
             <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#9b87f5] to-[#D6BCFA]">
