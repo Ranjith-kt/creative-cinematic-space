@@ -4,16 +4,13 @@ export const Hero = () => (
   <div className="relative h-screen">
     {/* Background Video */}
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute min-w-full min-h-full object-cover"
-      >
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <iframe
+        src="https://player.vimeo.com/video/1036595824?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+        className="absolute w-[300%] h-[300%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        frameBorder="0"
+        allow="autoplay; fullscreen"
+        style={{ pointerEvents: 'none' }}
+      ></iframe>
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/50"></div>
     </div>
