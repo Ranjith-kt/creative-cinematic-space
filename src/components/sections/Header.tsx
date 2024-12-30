@@ -10,9 +10,7 @@ export const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
   const navItems = [
     { label: "Reels", value: "client" },
     { label: "Personal Works", value: "work" },
-    { label: "About", value: "about" },
-    { label: "Blog", value: "blog" },
-    { label: "Tools", value: "tools" }
+    { label: "About", value: "about" }
   ];
 
   return (
