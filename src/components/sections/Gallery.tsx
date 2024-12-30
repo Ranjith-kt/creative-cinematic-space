@@ -38,8 +38,8 @@ export const Gallery = ({ category }: GalleryProps) => {
   };
 
   return (
-    <div className="container mx-auto px-4 pt-28">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="container mx-auto px-4 pt-16 md:pt-28">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
         {media.map((item, index) => (
           <div
             key={index}
@@ -54,7 +54,7 @@ export const Gallery = ({ category }: GalleryProps) => {
               />
             ) : (
               <div className="w-full h-full bg-black/90 flex items-center justify-center group-hover:bg-black/70 transition-colors">
-                <Play className="w-12 h-12 text-white opacity-80 group-hover:opacity-100 transition-opacity" />
+                <Play className="w-8 h-8 md:w-12 md:h-12 text-white opacity-80 group-hover:opacity-100 transition-opacity" />
               </div>
             )}
           </div>
@@ -67,9 +67,9 @@ export const Gallery = ({ category }: GalleryProps) => {
             <div className="relative w-full h-full flex items-center justify-center">
               <button
                 onClick={(e) => { e.stopPropagation(); handlePrevious(); }}
-                className="absolute left-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                className="absolute left-2 md:left-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <ChevronLeft className="w-6 h-6 text-white" />
+                <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-white" />
               </button>
               
               {media[selectedMedia].type === "image" ? (
@@ -90,9 +90,9 @@ export const Gallery = ({ category }: GalleryProps) => {
 
               <button
                 onClick={(e) => { e.stopPropagation(); handleNext(); }}
-                className="absolute right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                className="absolute right-2 md:right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <ChevronRight className="w-6 h-6 text-white" />
+                <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-white" />
               </button>
             </div>
           )}
