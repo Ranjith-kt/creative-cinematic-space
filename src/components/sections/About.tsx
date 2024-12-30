@@ -22,7 +22,7 @@ export const About = () => {
                 variant="outline"
                 size="icon"
                 className="rounded-full w-12 h-12 hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-                onClick={() => window.open('https://linkedin.com/your-profile', '_blank')}
+                onClick={() => window.open('https://linkedin.com/in/ranjithkizhakkey', '_blank')}
               >
                 <LinkedinIcon className="h-5 w-5" />
               </Button>
@@ -30,7 +30,7 @@ export const About = () => {
                 variant="outline"
                 size="icon"
                 className="rounded-full w-12 h-12 hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-                onClick={() => window.open('https://instagram.com/your-profile', '_blank')}
+                onClick={() => window.open('https://instagram.com/kizhakkey', '_blank')}
               >
                 <InstagramIcon className="h-5 w-5" />
               </Button>
