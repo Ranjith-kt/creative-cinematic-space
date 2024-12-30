@@ -39,9 +39,10 @@ const BlogPost = () => {
 
       Maintaining a growth mindset and staying adaptable in an industry that's constantly evolving is crucial for long-term success.`
     }
-  };
+  } as const;
 
-  const post = blogPosts[id as keyof typeof blogPosts];
+  const postId = id ? parseInt(id) as keyof typeof blogPosts : null;
+  const post = postId ? blogPosts[postId] : null;
 
   if (!post) {
     return <div>Post not found</div>;
