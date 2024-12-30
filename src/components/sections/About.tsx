@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { LinkedinIcon, InstagramIcon, FileText } from "lucide-react";
+import { LinkedinIcon, InstagramIcon, FileText, Mail } from "lucide-react";
 
 export const About = () => {
   return (
@@ -37,6 +37,14 @@ export const About = () => {
               onClick={() => window.open('/path-to-your-resume.pdf', '_blank')}
             >
               <FileText className="h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-full"
+              onClick={() => window.location.href = 'mailto:your-email@example.com'}
+            >
+              <Mail className="h-5 w-5" />
             </Button>
           </div>
         </div>

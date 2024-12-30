@@ -7,8 +7,8 @@ interface HeaderProps {
 
 export const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
   const navItems = [
-    { label: "Client Work", value: "client" },
-    { label: "Character Design", value: "work" },
+    { label: "Reels", value: "client" },
+    { label: "Personal Works", value: "work" },
     { label: "About", value: "about" },
   ];
 
