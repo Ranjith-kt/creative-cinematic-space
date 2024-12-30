@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Header } from "@/components/sections/Header";
+import { useState } from "react";
 
 const Blog = () => {
+  const [activeSection, setActiveSection] = useState("blog");
   const blogPosts = [
     {
       id: 1,
@@ -27,31 +30,34 @@ const Blog = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-24">
-      <h1 className="text-4xl font-bold mb-12">Blog</h1>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {blogPosts.map((post) => (
-          <Link key={post.id} to={`/blog/${post.id}`} className="transition-transform hover:-translate-y-1">
-            <Card className="h-full overflow-hidden hover:shadow-lg">
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl">{post.title}</CardTitle>
-                <CardDescription>{post.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 line-clamp-3">{post.preview}</p>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+    <>
+      <Header activeSection={activeSection} onSectionChange={setActiveSection} />
+      <div className="container mx-auto px-4 py-24">
+        <h1 className="text-4xl font-bold mb-12">Blog</h1>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.map((post) => (
+            <Link key={post.id} to={`/blog/${post.id}`} className="transition-transform hover:-translate-y-1">
+              <Card className="h-full overflow-hidden hover:shadow-lg">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-xl">{post.title}</CardTitle>
+                  <CardDescription>{post.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 line-clamp-3">{post.preview}</p>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
