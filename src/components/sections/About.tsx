@@ -6,20 +6,29 @@ export const About = () => {
   const { toast } = useToast();
   
   const handleResumeClick = () => {
-    const resumePath = '/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
-    console.log('Opening resume at path:', resumePath);
+    const resumePath = '/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
+    const fallbackPath = '/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
     
-    // Create a test link to check if the PDF exists
+    console.log('Attempting to open resume at primary path:', resumePath);
+    
+    // Try the primary path first
     fetch(resumePath)
       .then(response => {
         if (response.ok) {
+          console.log('Primary path successful, opening PDF');
           window.open(resumePath, '_blank');
         } else {
-          toast({
-            title: "Error",
-            description: "Unable to load the resume. Please try again later.",
-            variant: "destructive",
-          });
+          console.log('Primary path failed, trying fallback path');
+          // Try fallback path
+          return fetch(fallbackPath);
+        }
+      })
+      .then(response => {
+        if (response?.ok) {
+          console.log('Fallback path successful, opening PDF');
+          window.open(fallbackPath, '_blank');
+        } else {
+          throw new Error('Both paths failed');
         }
       })
       .catch(error => {
