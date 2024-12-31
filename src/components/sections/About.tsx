@@ -6,8 +6,8 @@ export const About = () => {
   const { toast } = useToast();
   
   const handleResumeClick = () => {
-    const resumePath = '/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
-    const fallbackPath = '/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
+    const resumePath = '/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil- Resume.pdf';
+    const fallbackPath = '/Ranjith_Kizhakkey_Thaivalappil- Resume.pdf';
     
     console.log('Attempting to open resume at primary path:', resumePath);
     
