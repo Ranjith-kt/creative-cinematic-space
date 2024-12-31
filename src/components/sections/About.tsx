@@ -6,43 +6,47 @@ export const About = () => {
   const { toast } = useToast();
   
   const handleResumeClick = () => {
-    const resumePath = '/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil- Resume.pdf';
-    const fallbackPath = '/Ranjith_Kizhakkey_Thaivalappil- Resume.pdf';
+    // Define all possible paths where the PDF might be located
+    const possiblePaths = [
+      '/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil- Resume.pdf',
+      '/Ranjith_Kizhakkey_Thaivalappil- Resume.pdf',
+      './lovable-uploads/Ranjith_Kizhakkey_Thaivalappil- Resume.pdf',
+      './Ranjith_Kizhakkey_Thaivalappil- Resume.pdf'
+    ];
     
-    console.log('Attempting to open resume at primary path:', resumePath);
+    console.log('Attempting to find PDF in possible locations');
     
-    // Try the primary path first
-    fetch(resumePath)
-      .then(response => {
-        if (response.ok) {
-          console.log('Primary path successful, opening PDF');
-          window.open(resumePath, '_blank');
-        } else {
-          console.log('Primary path failed, trying fallback path');
-          // Try fallback path
-          return fetch(fallbackPath);
+    // Try to fetch from each path until one works
+    const tryPaths = async () => {
+      for (const path of possiblePaths) {
+        try {
+          const response = await fetch(path);
+          if (response.ok) {
+            console.log('Successfully found PDF at:', path);
+            window.open(path, '_blank');
+            return true;
+          }
+        } catch (error) {
+          console.log('Failed to fetch from path:', path);
         }
-      })
-      .then(response => {
-        if (response?.ok) {
-          console.log('Fallback path successful, opening PDF');
-          window.open(fallbackPath, '_blank');
-        } else {
-          throw new Error('Both paths failed');
-        }
-      })
-      .catch(error => {
-        console.error('Error accessing resume:', error);
+      }
+      return false;
+    };
+
+    tryPaths().then(found => {
+      if (!found) {
+        console.error('Failed to load PDF from any location');
         toast({
           title: "Error",
           description: "Unable to load the resume. Please try again later.",
           variant: "destructive",
         });
-      });
+      }
+    });
   };
 
+  // ... keep existing code (container and layout structure)
   return (
-    // ... keep existing code (container and layout structure)
     <div className="container mx-auto px-4 py-16 md:py-28">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-light mb-12 text-center">About Me</h1>
