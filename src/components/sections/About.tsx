@@ -6,7 +6,8 @@ export const About = () => {
   const { toast } = useToast();
   
   const handleResumeClick = () => {
-    const resumePath = '/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
+    // Using the full URL path
+    const resumePath = 'https://fd2160ab-aff3-4a13-8803-6dd1726d6fb7.lovableproject.com/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
     console.log('Opening resume at path:', resumePath);
     
     // Create a test link to check if the PDF exists
