@@ -48,7 +48,7 @@ export const About = () => {
               <Button
                 variant="outline"
                 className="group relative px-8 py-6 text-lg font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-                onClick={() => window.open('/Ranjith_Kizhakkey_Thaivalappil- Resume.pdf', '_blank')}
+                onClick={() => window.open('/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf', '_blank')}
               >
                 <FileText className="h-5 w-5 mr-2" />
                 <span>Resume</span>
