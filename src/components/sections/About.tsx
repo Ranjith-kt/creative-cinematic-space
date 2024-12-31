@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { LinkedinIcon, InstagramIcon, FileText, Mail } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 export const About = () => {
   const { toast } = useToast();
   
   const handleResumeClick = () => {
-    // Using the full URL path
-    const resumePath = 'https://fd2160ab-aff3-4a13-8803-6dd1726d6fb7.lovableproject.com/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
+    const resumePath = '/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
     console.log('Opening resume at path:', resumePath);
     
     // Create a test link to check if the PDF exists
