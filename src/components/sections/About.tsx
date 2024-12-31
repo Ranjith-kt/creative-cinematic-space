@@ -1,14 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { LinkedinIcon, InstagramIcon, FileText, Mail } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 export const About = () => {
+  const { toast } = useToast();
+  
   const handleResumeClick = () => {
     const resumePath = '/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
     console.log('Opening resume at path:', resumePath);
-    window.open(resumePath, '_blank');
+    
+    // Create a test link to check if the PDF exists
+    fetch(resumePath)
+      .then(response => {
+        if (response.ok) {
+          window.open(resumePath, '_blank');
+        } else {
+          toast({
+            title: "Error",
+            description: "Unable to load the resume. Please try again later.",
+            variant: "destructive",
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error accessing resume:', error);
+        toast({
+          title: "Error",
+          description: "Unable to load the resume. Please try again later.",
+          variant: "destructive",
+        });
+      });
   };
 
   return (
+    // ... keep existing code (container and layout structure)
     <div className="container mx-auto px-4 py-16 md:py-28">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-light mb-12 text-center">About Me</h1>
