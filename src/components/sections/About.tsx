@@ -2,6 +2,12 @@ import { Button } from "@/components/ui/button";
 import { LinkedinIcon, InstagramIcon, FileText, Mail } from "lucide-react";
 
 export const About = () => {
+  const handleResumeClick = () => {
+    const resumePath = '/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf';
+    console.log('Opening resume at path:', resumePath);
+    window.open(resumePath, '_blank');
+  };
+
   return (
     <div className="container mx-auto px-4 py-16 md:py-28">
       <div className="max-w-6xl mx-auto">
@@ -48,7 +54,7 @@ export const About = () => {
               <Button
                 variant="outline"
                 className="group relative px-8 py-6 text-lg font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-                onClick={() => window.open('/lovable-uploads/Ranjith_Kizhakkey_Thaivalappil-Resume.pdf', '_blank')}
+                onClick={handleResumeClick}
               >
                 <FileText className="h-5 w-5 mr-2" />
                 <span>Resume</span>
